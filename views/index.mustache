@@ -1,0 +1,31 @@
+<html>
+<head>
+<link ref="stylesheet" type="text/css" href="/site.css"></link>
+</head>
+<body>
+  <div class="nav-bar">
+
+    <a href="/movies/Comedy"><button>Comedy</button></a>
+    <a href="/movies/Action"><button>Action</button></a>
+    <a href="/movies/Fiction"><button>Fiction</button></a>
+    <a href="/movies/Non-Fiction"><button>Non-Fiction</button></a>
+    <a href="/movies/Romantic"><button>Romantic</button></a>
+
+  </div>
+  {{#movieList}}
+  <div class="movie-div">
+    <h2>{{movieTitle}}</h2>
+    <img src="{{movieUrl}}"/>
+    <b>Description:</b>&nbsp;&nbsp; {{movieDescription}}
+  <b>  Genre:</b> &nbsp;&nbsp;{{genre}}
+  <form action="/delete_movie" method="POST">
+    <input type="hidden" name="movieTitle" value="{{movieTitle}}"/>
+  <input type="submit" value="Remove" />
+  </form>
+  </div>
+{{/movieList}}
+<form action="/add_more_movie" method="GET">
+<input type="submit" value="Add movie" />
+</form>
+</body>
+</html>
